@@ -28,6 +28,9 @@ interface ApiService {
     @GET("user/me")
     suspend fun getMe(): Response<BaseResponse<User>>
 
+    @PUT("auth/reset-pass")
+    suspend fun resetPassword(@Body request: ResetPassRequest): Response<BaseResponse<User>>
+
     // food
     @GET("food")
     suspend fun getAllFood(): Response<BaseResponse<List<Food>>>

@@ -26,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     private var lastCategorySelected: VerticalTextView? = null
 
     private val adapter: FoodAdapter by lazy {
-        FoodAdapter{
+        FoodAdapter {
             viewModel.onFoodClick(it)
         }
     }
@@ -51,11 +51,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private fun setupSearch() {
         binding.edtSearch.addTextChangedListener {
-            viewModel.searchFoodByName(it.toString().lowercase())
+            if (binding.edtSearch.isFocused) {
+                viewModel.searchFoodByName(it.toString().lowercase())
+            }
         }
         binding.edtSearch.setOnFocusChangeListener { _, isFocus ->
             if (isFocus) {
                 binding.lnCategory.gone()
+                viewModel.searchFoodByName(binding.edtSearch.text.toString())
             } else {
                 binding.lnCategory.visible()
                 viewModel.getListFoodByCurrentStyle()
@@ -64,7 +67,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun setupCategory() {
-        lastCategorySelected = binding.txtCategoryFrance
+        lastCategorySelected = when (viewModel.currentStyle) {
+            FoodStyle.FRANCE -> binding.txtCategoryFrance
+            FoodStyle.VIETNAM -> binding.txtCategoryVietNam
+            FoodStyle.AMERICA -> binding.txtCategoryAmerica
+            else -> binding.txtCategoryIndia
+        }
+        lastCategorySelected?.setTextColor(requireContext().getColor(R.color.primaryColor))
         binding.apply {
             txtCategoryFrance.setOnClickListener {
                 lastCategorySelected?.setTextColor(requireContext().getColor(R.color.white_EF_a50))

@@ -21,10 +21,15 @@
         android:id="@+id/signUpFragment"
         android:name="com.sudo248.shopping_food.ui.activity.auth.fragment.sign_up.SignUpFragment"
         android:label="SignUpFragment"
-        tools:layout="@layout/fragment_sign_up"/>
+        tools:layout="@layout/fragment_sign_up" />
     <fragment
         android:id="@+id/resetPasswordFragment"
         android:name="com.sudo248.shopping_food.ui.activity.auth.fragment.reset_password.ResetPasswordFragment"
         android:label="ResetPasswordFragment"
-        tools:layout="@layout/fragment_reset_password"/>
+        tools:layout="@layout/fragment_reset_password">
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 </navigation>

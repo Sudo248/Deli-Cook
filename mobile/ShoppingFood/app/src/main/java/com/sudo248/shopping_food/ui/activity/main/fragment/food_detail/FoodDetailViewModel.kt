@@ -36,7 +36,7 @@ class FoodDetailViewModel @Inject constructor(
 
         if (response.isSuccess) {
             emitState(UiState.SUCCESS)
-            navigator.navigateOff(
+            navigator.navigateTo(
                 FoodDetailFragmentDirections.actionFoodDetailFragmentToShoppingListFragment(response.get().data.orderId!!)
             )
         } else {

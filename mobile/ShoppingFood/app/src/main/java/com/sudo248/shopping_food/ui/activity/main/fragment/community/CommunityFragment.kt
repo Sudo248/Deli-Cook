@@ -24,6 +24,9 @@ class CommunityFragment : BaseFragment<FragmentCommunityBinding, CommunityViewMo
         binding.refresh.setOnRefreshListener {
             viewModel.getCommunity()
         }
+        binding.imgBack.setOnClickListener {
+            back()
+        }
     }
 
     override fun observer() {

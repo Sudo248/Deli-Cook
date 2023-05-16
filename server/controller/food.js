@@ -34,7 +34,8 @@ module.exports.postFood = asyncHandler(async function (req, res, next) {
         style,
         steps,
         types,
-        comments
+        comments,
+        rate,
     } = req.body;
 
     const food = await Food.create(foodInfo);

@@ -11,6 +11,7 @@ import com.sudo248.base_android.utils.SharedPreferenceUtils
 import com.sudo248.shopping_food.data.api.ApiService
 import com.sudo248.shopping_food.domain.Constant
 import com.sudo248.shopping_food.domain.model.BaseResponse
+import com.sudo248.shopping_food.domain.model.ResetPassRequest
 import com.sudo248.shopping_food.domain.model.UserRequest
 import com.sudo248.shopping_food.ui.activity.intro.IntroActivity
 import com.sudo248.shopping_food.ui.activity.main.MainActivity
@@ -27,6 +28,7 @@ class AuthViewModel @Inject constructor(
 ) : BaseViewModel<IntentDirections>() {
 
     val signUpSuccess = MutableLiveData(false)
+    val resetPasswordSuccess = MutableLiveData(false)
 
     var error: SingleEvent<String>? = null
 
@@ -53,6 +55,18 @@ class AuthViewModel @Inject constructor(
         if (response.isSuccess) {
             emitState(UiState.SUCCESS)
             signUpSuccess.postValue(true)
+        } else {
+            error = SingleEvent(getErrorMessageFromResponse(response))
+            emitState(UiState.ERROR)
+        }
+    }
+
+    fun resetPassword(request: ResetPassRequest) = launch(ioDispatcher) {
+        emitState(UiState.LOADING)
+        val response = handleResponse(apiService.resetPassword(request))
+        if (response.isSuccess) {
+            emitState(UiState.SUCCESS)
+            resetPasswordSuccess.postValue(true)
         } else {
             error = SingleEvent(getErrorMessageFromResponse(response))
             emitState(UiState.ERROR)

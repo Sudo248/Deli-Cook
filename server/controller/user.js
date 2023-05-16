@@ -10,17 +10,6 @@ const selectUser = {
     createdAt: 1,
 }
 
-// const selectHotel = {
-//     image: 1,
-//     roomType: 1,
-//     address: 1,
-//     description: 1,
-//     numberBedrooms: 1,
-//     numberBathrooms: 1,
-//     amenities: 1,
-//     price: 1
-// }
-
 module.exports.register = asyncHandler(async function (req, res, next) {
     const userInfo = { email, password, name, avatar } = req.body;
 
@@ -84,11 +73,11 @@ module.exports.getMe = asyncHandler(async function (req, res, next) {
 
 module.exports.changePassword = asyncHandler(async function(req, res, next){
     const {
-        userId,
+        email,
         newPassword
     } = req.body;
 
-    const user = await User.findById(userId);
+    const user = await User.findByIdentifier(email);
     user.password = newPassword;
     await user.save();
 
@@ -97,32 +86,3 @@ module.exports.changePassword = asyncHandler(async function(req, res, next){
         data: user
     });
 });
-
-// module.exports.getHotels = asyncHandler(async function (req, res, next) {
-//     const userId = req.body.userId;
-//     // console.log(userId);
-//     const user = await User.findById(userId)
-//         .lean()
-//         .select({ hotels: 1 })
-//         .populate(
-//             {
-//                 path: 'hotels',
-//                 select: selectHotel,
-//                 options: {
-//                     lean: true,
-//                     sort: {
-//                         updateAt: 'desc'
-//                     }
-//                 }
-//             }
-//         );
-
-//     res
-//         .status(200)
-//         .json({
-//             success: true,
-//             count: user.hotels.length,
-//             hotels: user.hotels
-//         });
-
-// });
