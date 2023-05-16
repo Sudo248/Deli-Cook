@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundColor">
+
+    <ImageView
+        android:id="@+id/imgIntro"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/img_intro"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="H,480:389"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/txtCooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cooking"
+        android:textColor="@color/primaryColor"
+        android:textSize="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgIntro"
+        android:layout_marginStart="50dp"/>
+
+    <TextView
+        android:id="@+id/txtExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/experience"
+        app:layout_constraintStart_toStartOf="@+id/txtCooking"
+        app:layout_constraintTop_toBottomOf="@+id/txtCooking"
+        android:textSize="50sp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/txtLikeAChef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="like a chef"
+        app:layout_constraintStart_toStartOf="@+id/txtExperience"
+        app:layout_constraintTop_toBottomOf="@+id/txtExperience"
+        android:textSize="50sp"
+        android:textColor="@color/primaryColor"/>
+
+    <LinearLayout
+        android:id="@+id/lnStarted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtLikeAChef"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_gradient_conner_50dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="50dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_circle_arrow_right"
+            android:layout_marginStart="10dp"
+            android:layout_marginVertical="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/get_started"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="20dp"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnStarted"
+        app:tint="@color/primaryColor"
+        android:padding="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sudo248.shopping_food.ui.activity.main.fragment.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_foodDetailFragment"
+            app:destination="@id/foodDetailFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/shoppingListFragment"
+        android:name="com.sudo248.shopping_food.ui.activity.main.fragment.shopping_list.ShoppingListFragment"
+        android:label="ShoppingListFragment"
+        tools:layout="@layout/fragment_shopping">
+        <argument
+            android:name="orderId"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_shoppingListFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailFragment"
+        android:name="com.sudo248.shopping_food.ui.activity.main.fragment.food_detail.FoodDetailFragment"
+        android:label="FoodDetailFragment"
+        tools:layout="@layout/fragment_food_detail">
+        <argument
+            android:name="food"
+            app:argType="com.sudo248.shopping_food.domain.model.Food"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_foodDetailFragment_to_shoppingListFragment"
+            app:destination="@id/shoppingListFragment" />
+        <action
+            android:id="@+id/action_foodDetailFragment_to_stepFragment"
+            app:destination="@id/stepFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepFragment"
+        android:name="com.sudo248.shopping_food.ui.activity.main.fragment.steps.StepFragment"
+        android:label="StepFragment"
+        tools:layout="@layout/fragment_step">
+        <argument
+            android:name="food"
+            app:argType="com.sudo248.shopping_food.domain.model.Food"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.sudo248.shopping_food.ui.activity.main.fragment.community.CommunityFragment"
+        android:label="CommunityFragment"
+        tools:layout="@layout/fragment_community"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sudo248.shopping_food.ui.activity.main.fragment.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+
+</navigation>

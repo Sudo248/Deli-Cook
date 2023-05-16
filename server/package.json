@@ -1,0 +1,32 @@
+{
+  "name": "shopping-food-server",
+  "version": "1.0.0",
+  "description": "Server for shoppong food",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "env-cmd -f ./.env nodemon ./server.js",
+    "dev": "env-cmd -f ./.env nodemon ./server.js"
+  },
+  "author": "Sudo",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.4",
+    "mongoose-validate": "^0.0.5",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7",
+    "promise": "^8.3.0",
+    "sharp": "^0.32.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  }
+}

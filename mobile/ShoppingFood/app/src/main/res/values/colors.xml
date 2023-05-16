@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#EA8135</color>
+    <color name="secondColor">#F8B1E2</color>
+    <color name="backgroundColor">#394459</color>
+    <color name="secondBackgroundColor">#22151F</color>
+    <color name="buttonBackgroundColor">#EFE3C8</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_a50">#80FFFFFF</color>
+    <color name="white_a40">#66FFFFFF</color>
+    <color name="white_EF_a50">#80EFE3C8</color>
+    <color name="white_a10">#1AFFFFFF</color>
+    <color name="grey_41">#80414141</color>
+    <color name="white_a8">#14FFFFFF</color>
+    <color name="brown">#D2AF84</color>
+    <color name="yellow">#FFDC61</color>
+    <color name="orange">#EA8135</color>
+    <color name="orange_a50">#80EA8135</color>
+    <color name="grey">#AEACAC</color>
+    <color name="backgroundBottomNav">#22151F</color>
+</resources>
